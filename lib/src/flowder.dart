@@ -38,7 +38,8 @@ class Flowder {
   static Future<StreamSubscription> initDownload(
       String url, DownloaderUtils options) async {
     var lastProgress = await options.progress.getProgress(url);
-    final client = options.client ?? Dio(BaseOptions(sendTimeout: 60));
+    final client =
+        options.client ?? Dio(BaseOptions(sendTimeout: Duration(seconds: 60)));
     // ignore: cancel_subscriptions
     StreamSubscription? subscription;
     try {
